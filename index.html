@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Probando Firebase</title>
+</head>
+<body>
+  <h1>Probando firebase</h1>
+  <button id="conectar">Iniciar Sesión</button>
+  <button id="logOut">Cerrar Sesión</button>
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAzYwdpMDSOnZU8JKdanfYRFqN2c0d-NBw",
+    authDomain: "vuefire-15504.firebaseapp.com",
+    databaseURL: "https://vuefire-15504.firebaseio.com",
+    projectId: "vuefire-15504",
+    storageBucket: "vuefire-15504.appspot.com",
+    messagingSenderId: "367909420571"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="index.js"></script>
+</html>
