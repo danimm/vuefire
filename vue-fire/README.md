@@ -1,4 +1,4 @@
-# vue-firebase
+# vue-fire
 
 > A Vue.js project
 
