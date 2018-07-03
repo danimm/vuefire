@@ -1,16 +1,19 @@
 <template lang="pug">
   #app
-    img(src="./assets/logo.png")
-    h1 {{ msg }}
-    button
-      router-link(to="login") Iniciar sesión
-    router-view
-    vfbody
+    vfireHeader
+    section.section
+      .container
+        router-view
+    vffooter
 </template>
 
 <script>
+import vfireHeader from '@/components/layout/Header.vue'
 import vflogin from '@/components/Login.vue'
-import vfbody from '@/components/Body.vue'
+import vffooter from '@/components/layout/Footer.vue'
+import 'bulma/css/bulma.css'
+
+
 export default {
   name: 'app',
   data () {
@@ -18,20 +21,20 @@ export default {
       msg: 'Vue + Firebase App'
     }
   },
-  components: { vfbody }
+  components: { vfireHeader, vffooter }
 }
 </script>
 
 <style lang="scss">
 @import './scss/styles.scss';
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+// #app {
+//   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #2c3e50;
+//   margin-top: 60px;
+// }
 
 h1, h2 {
   font-weight: normal;

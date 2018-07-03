@@ -1,11 +1,16 @@
 <template lang="pug">
-  #body
-    h1 Bienvenido a la App del futuro
-    p Para formar parte de esta fantastica aplicación necesitas iniciar sesión.
+  section.hero#body
+    .hero-body
+      .container
+        img(src="@/assets/logo.png")
+        h1.title Bienvenido a la App del futuro
+        h2.subtitle Con esta App podrás usar un chat utilizando Firebase.
+        h3 Elige un método de Inicio de sesión para formar 
+          | parte de esta fantastica aplicación necesitas iniciar sesión.
     .container
-      button
-        router-link(:to="{ name: 'login' }") Iniciar sesión
-      button Registrarse
+      router-link.button.is-info.is-medium(to="login")
+        span Empezemos
+    
 </template>
 
 <script>
@@ -13,5 +18,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+  a {
+    color: white;
+  }
 </style>
