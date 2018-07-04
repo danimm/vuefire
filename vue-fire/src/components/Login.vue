@@ -10,18 +10,17 @@
             .field
               label.label Email
               .control
-                input.input(type="text" placeholder="Introduce tu email")
+                input.input(v-model="email" type="text" placeholder="Introduce tu email")
             .field
               label.label password
               .control
-                input.input(type="password")
+                input.input(v-model="password" type="password")
             .field
               .control
                 p.buttons
-                  button.button.is-link Iniciar sesión
-                  button.button.is-info ¿No tienes cuenta?
-                
-                
+                  button.button.is-link(@click="loginEmail") Iniciar sesión
+                  button.button.is-info(@click="logOut") Cerrar sesión
+
       .card
         header.card-header
           .card-header-title Google
@@ -32,11 +31,49 @@
               .container-text
                 p Inicia sesión con tu cuenta de Google 
                 .control
-                  button.button.is-link Iniciar sesión
+                  button.button.is-link(@click="loginGoogle") Iniciar sesión
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
+
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+
+  methods: {
+    loginEmail () {
+      firebase.
+        auth ()
+        .signInWithEmailAndPassword (this.email, this.password)
+        .then((user) => this.$router.push('home'), (error) => console.error(error))
+    },
+
+    loginGoogle () {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then( (result) => {
+          var user = result.user;
+          console.log(user)
+          this.$router.push('home')
+          }, (error) => console.error(error))
+    },
+
+    logOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then((user) => alert('Has cerrado sesión'), (error) => console.error(error))
+    }
+  }
 }
 </script>
 

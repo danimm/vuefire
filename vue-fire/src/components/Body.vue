@@ -6,10 +6,10 @@
         h1.title Bienvenido a la App del futuro
         h2.subtitle Con esta App podrás usar un chat utilizando Firebase.
         h3 Elige un método de Inicio de sesión para formar 
-          | parte de esta fantastica aplicación necesitas iniciar sesión.
-    .container
-      router-link.button.is-info.is-medium(to="login")
-        span Empezemos
+          | parte de esta fantastica aplicación.
+      .container.container-button
+        router-link.button.is-info.is-medium(to="login")
+          span Empezemos
     
 </template>
 
@@ -21,5 +21,9 @@ export default {
 <style lang="css" scoped>
   a {
     color: white;
+  }
+
+  .container-button {
+    margin-top: 20px;
   }
 </style>

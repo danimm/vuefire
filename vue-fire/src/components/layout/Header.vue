@@ -66,4 +66,8 @@
     color: white;
   }
 
+  .is-grouped {
+    align-items: center;
+  }
+
 </style>

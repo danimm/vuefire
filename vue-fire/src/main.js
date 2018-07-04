@@ -11,7 +11,6 @@ const router = new VueRouter({
   mode: 'history'
 })
 
-
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyAzYwdpMDSOnZU8JKdanfYRFqN2c0d-NBw",
@@ -21,7 +20,16 @@ var config = {
   storageBucket: "vuefire-15504.appspot.com",
   messagingSenderId: "367909420571"
 }
+
 firebase.initializeApp(config)
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    console.log('tenemos usuario activo')
+  } else {
+    console.log('no hay usuario activo')
+  }
+});
 
 new Vue({
   el: '#app',
