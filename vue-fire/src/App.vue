@@ -8,6 +8,9 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+const refTest = firebase.database().ref('test')
+
 import vfireHeader from '@/components/layout/Header.vue'
 import vflogin from '@/components/Login.vue'
 import vffooter from '@/components/layout/Footer.vue'

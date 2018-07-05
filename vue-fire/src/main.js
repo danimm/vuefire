@@ -1,15 +1,9 @@
+import firebase from 'firebase'
 import Vue from 'vue'
 import App from './App.vue'
-import firebase from 'firebase'
 
 import VueRouter from 'vue-router'
 import routes from '@/routes'
-
-Vue.use(VueRouter)
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-})
 
 // Initialize Firebase
 var config = {
@@ -23,9 +17,15 @@ var config = {
 
 firebase.initializeApp(config)
 
+Vue.use(VueRouter)
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
+
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log('tenemos usuario activo')
+    console.log('tenemos usuario activo', user)
   } else {
     console.log('no hay usuario activo')
   }
