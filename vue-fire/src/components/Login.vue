@@ -19,7 +19,6 @@
               .control
                 p.buttons
                   button.button.is-link(@click="loginEmail") Iniciar sesión
-                  button.button.is-info(@click="logOut") Cerrar sesión
 
       .card
         header.card-header
@@ -61,17 +60,10 @@ export default {
         .auth()
         .signInWithPopup(provider)
         .then( (result) => {
-          var user = result.user;
-          console.log(user)
+          // let user = result.user;
+          console.log("Iniciaste sesión con Google: ")
           this.$router.push('home')
           }, (error) => console.error(error))
-    },
-
-    logOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then((user) => alert('Has cerrado sesión'), (error) => console.error(error))
     }
   }
 }
