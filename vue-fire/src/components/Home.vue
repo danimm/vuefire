@@ -4,33 +4,19 @@
       h1.title Bienvenido {{ activeUser.displayName }}
       h3.subtitle Vamos a  empezar a escribir en la base de datos
 
-    // .container
-    //   .field.is-horizontal
-    //     .field-label
-    //       label.label Nombre
-    //     .field-body
-    //       .field
-    //         p.control {{ user.name }}
-      
-    //   .field.is-horizontal
-    //     .field-label
-    //       label.label Email
-    //     .field-body
-    //       .field
-    //         p.control {{ user.email }}
-
-    .container
-      .card
-        .card-content
-          .media
-            .media-left
-              figure.image.is-128x128
-                img(:src="activeUser.photoURL")
-          .media-content
-            p.title {{ activeUser.displayName }}
-            p.subtitle Email: {{ activeUser.email }}
+    .box
+      .media
+        .media-left
+          figure.image.is-64x64
+            img(:src="activeUser.photoURL")
+        .media-content
           .content
-            p Curabitur interdum justo euismod turpis mattis porttitor. Integer sed ullamcorper erat. Vestibulum nec sollicitudin felis, vulputate dapibus lacus. Cras sed libero ac nisi auctor placerat. Quisque sed felis a leo laoreet rhoncus. Suspendisse ut massa eu sapien fringilla aliquam. Phasellus fermentum tincidunt metus et volutpat.
+            p.title {{ activeUser.displayName }}
+            p.subtitle Estos son los usuarios de Firebase: 
+            ul(v-for="user in users", :key="user.key")
+              li Nombre: {{ user.name }} 
+              li Usuario: {{ user.userName }}
+              li Email: {{ user.email }} 
             p User ID: {{ activeUser.uid }}
 
         
@@ -46,16 +32,16 @@
 </template>
 
 <script>
-
+  import { db } from '@/firebaseConfigured'
   export default {
     data() {
       return {
-        user: {
-          // name: dataUser.displayName,
-          // email: dataUser.email,
-          // photo: dataUser.photoURL
-        }
+        users: {}
       }
+    },
+
+    firebase: {
+      users: db.ref('users')
     },
 
     props: {

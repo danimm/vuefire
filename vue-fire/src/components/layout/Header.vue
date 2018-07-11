@@ -18,7 +18,7 @@
         .navbar-item.has-dropdown.is-hoverable
           a.navbar-link Ir a..
           .navbar-dropdown.is-boxed
-            a.navbar-item overview
+            router-link.navbar-item(to="register") Registrar
             a.navbar-item Colums
             a.navbar-item Modifiers
       .navbar-end
